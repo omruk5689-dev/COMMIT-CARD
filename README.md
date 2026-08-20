@@ -116,28 +116,6 @@ Planned firmware functionality includes:
 - Hardware testing
 - Future expansion features
 
-Firmware development will continue alongside PCB prototyping.
-
- Development Status
-
-Commit Card is currently under development.
-
-Current development stages include:
-
-- [x] Initial concept
-- [x] Component selection
-- [x] NFC IC integration
-- [x] Initial schematic design
-- [ ] Complete PCB routing
-- [ ] Electrical rule checking
-- [ ] Prototype manufacturing
-- [ ] PCB assembly
-- [ ] NFC testing
-- [ ] MCU firmware
-- [ ] Full hardware validation
-- [ ] Final revision
-
- Open Source
 
 Commit Card is being developed as an open-source hardware project.
 
