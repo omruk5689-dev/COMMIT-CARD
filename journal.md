@@ -1,63 +1,118 @@
-# Dev Journal — NFC GitHub Profile Card
-<img width="2160" height="1236" alt="3D_PCB1_2026-08-21 (2)" src="https://github.com/user-attachments/assets/51c01c42-f1b5-4c39-bb08-468fb952f019" />
+# COMMITCard. Project Journal
 
-**Date:** August 21, 2026
-**Time spent:** ~1.5 hours
-**Project:** NFC-programmable card that opens my GitHub profile when tapped with a phone
+| **Project Name**       Commitcard  |
+
+| ---------------------- | ----------- |
+
+| **Designing Software** | EasyEDA Pro
+
+| **Time Taken**         | 1.5 Hours   |
+
+| **Designed By**        | OMER     |
+
+---
+<img width="2160" height="1257" alt="3D_PCB1_2026-08-21" src="https://github.com/user-attachments/assets/5140fffc-f77a-471b-9904-9212acffd5ad" />
+
+## Project Overview
+
+COMMITCard is a small project that uses NFC technology on a PCB to make sharing my GitHub profile a bit more engaging.
+
+The idea was simple: build a card that has an NFC antenna and a few basic electronic parts that a phone can read.
+
+This project was mainly an experiment with PCB design, NFC and creating something that feels personal.
 
 ---
 
-## Overview
+## 1.  Schematic. ~25 Minutes
 
-Built a small PCB-based NFC card. The idea: tap the card with a phone, and it opens my GitHub profile. Designed in EasyEDA (schematic + PCB layout).
+I began by drawing the schematic in Pro.
 
-## Parts Used
+First I searched for the components I needed:
 
-- **U1** — NT3H2111W0FHKH (NFC/EEPROM tag IC)
-- **U2** — 25x45mm NFC Antenna coil
-- **C1** — 220nF capacitor
-- **LED1** — status LED (K1-6816B)
-- **R1** — 470Ω resistor (LED current limiting)
+* NFC antenna
 
-## What I Did
+* Resistor
 
-1. **Schematic design**
-   - Placed the NT3H2111 NFC IC (U1) as the core chip
-   - Connected the 25x45mm NFC antenna coil (U2) to the LA/LB pins
-   - Added a 220nF capacitor (C1) across VOUT/VCC for tuning/decoupling
-   - Wired an LED + 470Ω resistor as a status indicator
-   - Read through the datasheet to get pin connections right (VSS, SCL, FD, VCC, SDA)
-<img width="2362" height="1672" alt="SCH_Schematic1_1-P1_2026-08-21 (1)" src="https://github.com/user-attachments/assets/21c85454-98c2-46db-8532-064f402bef94" />
+* Capacitor
 
-2. **Moved to PCB layout**
-   - Updated schematic to PCB in EasyEDA
-   - Routed traces for the design
-<img width="2160" height="1246" alt="PCB_PCB1_2026-08-21" src="https://github.com/user-attachments/assets/ae6292c8-3be3-496c-baa4-46c11e26a086" />
+* LED
 
-3. **Hit DRC (Design Rule Check) errors**
-   - Ran into clearance errors (Line to TH Pad, Line to SMD Pad) and connection errors (disconnected SMD pads)  NFC IC pads
-   - Fixed by:
-     - Adjusting `copperThickness1oz` design rule clearances (Track↔SMD Pad, Track↔TH Pad)
-     - Rerouting tracks around tightly packed pin clusters instead of straight through
-     - Re-checking net connections on disconnected pads
+* Other required connections
 
-4. **Polish**
-   - Added graphics/silkscreen touches to make the card look better
+After locating the components I put them into the schematic. Wired them together.
 
-5. **Final check**
-   - Re-ran DRC after fixes — all clear
-   - Reviewed the whole board once more — good to go
-<img width="2160" height="1263" alt="3D_PCB1_2026-08-21 (3)" src="https://github.com/user-attachments/assets/3334b3de-b18e-48a3-95d4-9323f66263f2" />
-<img width="2160" height="1236" alt="3D_PCB1_2026-08-21 (2)" src="https://github.com/user-attachments/assets/42504fe5-56cb-4ec9-9cc9-961def0e9bcb" />
+The schematic was quite simple so this part did not take long.
 
-## Status
-
- Schematic complete
- PCB routed
- DRC errors resolved
- Visual polish added
- Next: fabrication / ordering
+I mainly concentrated on ensuring each component was wired correctly before I moved to the PCB layout.
+<img width="2362" height="1672" alt="SCH_Schematic1_1-P1_2026-08-21" src="https://github.com/user-attachments/assets/1548067a-c7cc-48be-bed1-5a278f9da703" />
 
 ---
 
-*Logged for GitHub repo commit history.*
+## 2.  PCB Layout. ~35–40 Minutes
+
+After finishing the schematic I proceeded to the PCB design.
+
+First I drew the outline of the PCB board to give the card a basic shape.
+
+Then I began placing the components inside the board.
+
+When all components were positioned correctly I began routing the traces between them.
+
+This is where I encountered my real problem.
+<img width="2160" height="1317" alt="PCB_PCB1_2026-08-21" src="https://github.com/user-attachments/assets/78113d48-3c45-4854-b3a9-ecc9b5986611" />
+
+###  Routing Error
+
+While routing the PCB I saw that some connections were not working properly due to the design rules.
+
+The track and pad settings in my design rules were larger than what the actual components could handle.
+
+Because of this I received routing errors. Could not properly connect some of the components.
+
+It took me a time to discover the cause of the problem.
+
+After checking the settings and understanding the issue I changed the design rules to match the PCB and component requirements.
+
+After changing the settings I could finish the routing normally.
+
+---
+
+## 3.  Graphics & Final Design
+
+After the PCB was finished I worked on making the card look more personal.
+
+I looked for graphics and images that would fit the project then added and adjusted them on the PCB.
+
+This part was about placing everything correctly and ensuring the graphics did not interfere with the PCB design.
+
+---
+
+## 4.  Exporting the Project
+
+After finishing the PCB design and checking everything I exported the required project files from Pro.
+
+That marked the end of the COMMITCard project.
+
+---
+
+##  What I Learned
+
+Even though COMMITCard is a simple project it gave me useful experience with the entire PCB workflow:
+
+- **Schematic → PCB Outline → Component Placement → Routing → Design Rules → Graphics → Export**
+
+The biggest thing I learned was that even a simple PCB can have configuration issues that take time to understand.
+
+The routing error with the design rules was an example of that.
+
+Overall it was a fun project and I liked the idea of turning something as simple, as an NFC tag into a physical card that represents my work.
+
+---
+
+### ️ Total Time
+
+**Approximately 1.5 hours**
+
+###  Designed By
+
+**O M E R**
